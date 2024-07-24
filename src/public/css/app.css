@@ -1,5 +1,11 @@
-header {
+.header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 30px;
+    background-color: #000;
+    color: #fff;
 }
 
 .header_ttl {
@@ -8,12 +14,13 @@ header {
     font-size: 25px;
 }
 
-main {
+.main {
     width: 100%;
     height: 1230px;
     background-color: rgba(240, 255, 255, 0.541);
 }
 
-footer {
+.footer {
     text-align: center;
+    font-size: 10px;
 }

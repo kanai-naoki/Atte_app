@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisteredUserController;
-use App\Http\Controllers\AuthSessionController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\RestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,22 +15,9 @@ use App\Http\Controllers\AuthSessionController;
 |
 */
 
-Route::get('/register', [RegisteredUserController::class, 'create']);
-// ユーザー登録情報をデータベースに記憶するためのルーティング
-Route::post('/register', [RegisteredUserController::class, 'store']);
-
-// ユーザーログイン処理（認証機能）
-Route::get('/login', [AuthSessionController::class, 'store']);
-// ユーザーログアウト処理
-Route::post('/login', [AuthSessionController::class, 'destroy']);
-
-// 打刻機能
-Route::get('/attendance', function() {
-    return view('attendance');
+// ログイン認証ができている場合にのみ、打刻画面に入れる処理
+Route::middleware('auth')->group(function () {
+    Route::get('/', [AttendanceController::class, 'index']);
 });
-Route::get('/', function() {
-    return view('/');
-});
-
 
 

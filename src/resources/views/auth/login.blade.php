@@ -10,9 +10,9 @@
     <h2>ログイン</h2>
   </div>
   <div class="login_form_area">
-    {{-- actionのリンク先を考える→ログイン後の処理を考える--}}
-    <form class="form" action="/" method="post"> 
-      <input class="form_email" type="email" name="email" placeholder="メールアドレス" >
+    <form class="form" action="/login" method="post">
+      @csrf 
+      <input class="form_email" type="email" name="email" placeholder="メールアドレス" value="{{ old('email') }}" >
       <input class="form_password" type="password" name="password" placeholder="パスワード">
       <input class="submit" type="submit" value="ログイン">
     </form>
